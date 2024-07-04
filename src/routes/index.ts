@@ -1,0 +1,6 @@
+export {default as Login} from './Login'
+export {default as Album} from './Album'
+export {default as Home} from './Home'
+export {default as Preferences} from './Preferences'
+export {default as Search} from './Search'
+export {default as Lyrics} from './Lyrics'
