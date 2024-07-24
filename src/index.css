@@ -1,3 +1,55 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --font-base:  62px;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    overscroll-behavior-y: none;
+}
+
+/* estilos layout */
+
+#app {
+    background: #000;
+    color: #fff;
+    height: 100vh;
+    min-height: 100%;
+    position: relative;
+    width: 100%;
+    padding: 8px;
+    display: grid;
+    gap: 8px;
+    grid-template-areas: 
+        "left-sidebar    main-view       right-sidebar"
+        "playing-bar     playing-bar     playing-bar"
+    ;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    user-select: none;
+}
+
+/* #right-sidebar {
+    resize: horizontal;
+} */
+
+#slider {
+    position: relative;
+    display: flex;
+    overflow: scroll;
+    scroll-snap-type: x mandatory;
+}
+
+#slider img {
+    width: 100%;
+    left: 0;
+    position: sticky;
+    object-fit: cover;
+    border-radius: 8px;
+    scroll-snap-align: center;
+}

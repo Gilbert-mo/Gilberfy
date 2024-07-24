@@ -4,3 +4,7 @@ export {default as Home} from './Home'
 export {default as Preferences} from './Preferences'
 export {default as Search} from './Search'
 export {default as Lyrics} from './Lyrics'
+export {default as Artist} from './Artist'
+
+export {loader as homeLoader } from './Home'
+export {loader as artistsLoader } from './Artist'

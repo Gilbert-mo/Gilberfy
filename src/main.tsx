@@ -1,27 +1,32 @@
+// import { useEffect, useState } from 'react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from './routes/App.tsx'
-import {Login, Home, Album, Preferences, Lyrics, Search} from './routes'
+import { Login, Home, homeLoader, Album, Preferences, Lyrics, Search, Artist, artistsLoader } from './routes'
 import './index.css'
+import AuthCallback from './routes/AuthCallBack.tsx'
+// import { loader as homeLoader } from './routes/Home.tsx'
 
-function initialRoot(isLoggedIn: boolean) {
-  return isLoggedIn ? <App /> : <Login />
-}
 
 const router = createBrowserRouter([{
   path: '/',
-  element: initialRoot(true),
+  element: localStorage.getItem('isLoggedIn') === 'true' ? <App /> : <Login />,
   errorElement: <p>Error page</p>,
   children: [{
     path: '/',
-    element: <Home />
+    element: <Home />,
+    loader: homeLoader,
+  }, {
+    path: '/callback',
+    element: <AuthCallback />
   }, {
     path: 'search',
     element: <Search />
   }, {
     path: 'artist/:artistId',
-    element: <h1>Artist</h1>
+    element: <Artist />,
+    loader: artistsLoader,
   }, {
     path: 'track/trackId',
     element: <h1>Track 1</h1>
